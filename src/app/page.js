@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, MessageCircle, Zap, UserPlus, Search, Users, Code, Trophy, ChevronRight } from 'lucide-react';
+import { ArrowRight, MessageCircle, Zap, UserPlus, Search, Users, Code, Trophy, ChevronRight, ChevronLeft } from 'lucide-react';
 import ParticleBackground from '@/components/ParticleBackground';
 import TypewriterText from '@/components/TypewriterText';
 import CountUpAnimation from '@/components/CountUpAnimation';
@@ -25,10 +25,23 @@ import styles from './page.module.css';
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const scrollRef = useRef(null);
 
   const filteredHackathons = activeFilter === 'All'
     ? hackathons.slice(0, 6)
     : hackathons.filter(h => h.mode === activeFilter || h.domain === activeFilter).slice(0, 6);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+    }
+  };
 
   const howItWorks = [
     { icon: <UserPlus size={28} />, title: 'Create Profile', desc: 'Sign up and build your hacker profile' },
@@ -97,10 +110,18 @@ export default function Home() {
           <div className="container">
             <SectionHeading label="Hackathons" title="Live & Upcoming Hackathons & Events" subtitle="Discover the best hackathons and build something amazing" />
             <FilterTabs tabs={hackathonFilters} activeTab={activeFilter} onChange={setActiveFilter} />
-            <div className={styles.hackathonGrid}>
-              {filteredHackathons.map((h) => (
-                <HackathonCard key={h.id} hackathon={h} />
-              ))}
+            <div className={styles.hackathonCarouselWrapper}>
+              <button className={`${styles.carouselBtn} ${styles.prevBtn}`} onClick={scrollLeft} aria-label="Previous hackathons">
+                <ChevronLeft size={24} />
+              </button>
+              <div className={styles.hackathonGrid} ref={scrollRef}>
+                {filteredHackathons.map((h) => (
+                  <HackathonCard key={h.id} hackathon={h} />
+                ))}
+              </div>
+              <button className={`${styles.carouselBtn} ${styles.nextBtn}`} onClick={scrollRight} aria-label="Next hackathons">
+                <ChevronRight size={24} />
+              </button>
             </div>
             <div className={styles.viewAll}>
               <Link href="/hackathons" className="btn btn-ghost">View All Hackathons <ChevronRight size={16} /></Link>

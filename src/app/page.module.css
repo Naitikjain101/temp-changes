@@ -102,11 +102,64 @@
   font-weight: 500;
 }
 
-/* ━━ HACKATHON GRID ━━ */
+/* ━━ HACKATHON CAROUSEL ━━ */
+.hackathonCarouselWrapper {
+  position: relative;
+  margin: 0 calc(var(--space-4) * -1);
+  padding: 0 var(--space-4);
+}
+
 .hackathonGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: var(--space-6);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--space-4);
+  scrollbar-width: none; /* Firefox */
+}
+
+.hackathonGrid::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.hackathonGrid > * {
+  flex: 0 0 calc(33.333% - (var(--space-6) * 2 / 3));
+  scroll-snap-align: start;
+}
+
+.carouselBtn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(8px);
+}
+
+.carouselBtn:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.prevBtn {
+  left: -20px;
+}
+
+.nextBtn {
+  right: -20px;
 }
 
 .viewAll {
@@ -399,7 +452,7 @@
 
 /* ━━ RESPONSIVE ━━ */
 @media (max-width: 1024px) {
-  .hackathonGrid { grid-template-columns: repeat(2, 1fr); }
+  .hackathonGrid > * { flex: 0 0 calc(50% - (var(--space-6) / 2)); }
   .projectGrid { grid-template-columns: repeat(2, 1fr); }
   .stepsGrid { grid-template-columns: repeat(2, 1fr); }
   .communitySection { grid-template-columns: 1fr; }
@@ -412,7 +465,8 @@
 }
 
 @media (max-width: 640px) {
-  .hackathonGrid { grid-template-columns: 1fr; }
+  .hackathonGrid > * { flex: 0 0 85%; }
+  .carouselBtn { display: none; }
   .projectGrid { grid-template-columns: 1fr; }
   .heroContent { padding: var(--space-12) 0 var(--space-8); }
 }
