@@ -12,6 +12,7 @@ export default function sitemap() {
     { path: '/contact', changeFrequency: 'monthly', priority: 0.7 },
     { path: '/privacy', changeFrequency: 'yearly', priority: 0.3 },
     { path: '/terms', changeFrequency: 'yearly', priority: 0.3 },
+    { path: '/brand-kit', changeFrequency: 'monthly', priority: 0.5 },
   ];
 
   return routes.map(({ path, changeFrequency, priority }) => ({
