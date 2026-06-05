@@ -6,8 +6,11 @@ export default function LogoMarquee() {
   return (
     <div className={styles.marquee} aria-label="Partner companies">
       <div className={styles.track}>
-        {logos.map((name, i) => (
-          <div key={i} className={styles.logo}>{name}</div>
+        {logos.map((item, i) => (
+          <div key={i} className={styles.logo}>
+            <img src={item.logo} alt={item.name} className={styles.logoImg} />
+            <span>{item.name}</span>
+          </div>
         ))}
       </div>
     </div>
