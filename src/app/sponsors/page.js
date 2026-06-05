@@ -23,7 +23,11 @@ export default function SponsorsPage() {
                 <div className={styles.tierGrid}>
                   {list.map(s => (
                     <a key={s.name} href={s.website} className={styles.sponsorCard} target="_blank" rel="noopener noreferrer">
-                      <span className={styles.logo}>{s.logo}</span>
+                      {s.logo.startsWith('/') ? (
+                        <img src={s.logo} alt={s.name} className={styles.logoImg} />
+                      ) : (
+                        <span className={styles.logo}>{s.logo}</span>
+                      )}
                       <span className={styles.name}>{s.name}</span>
                       <span className={styles.desc}>{s.description}</span>
                       <span className={styles.visitLink}><ExternalLink size={12} /> Visit Website</span>
