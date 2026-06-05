@@ -27,7 +27,15 @@ const images = [
   { src: '/gallery/hackstorm_booth.jpg', alt: 'Hackstorm Photobooth', title: 'Team Spirits', desc: 'Fun moments at the Hackstorm photobooth.' },
   { src: '/gallery/hackstorm_stage.jpg', alt: 'Inauguration Ceremony', title: 'Inauguration Stage', desc: 'Dignitaries and community leads at the opening ceremony.' },
   { src: '/gallery/hackstorm_inauguration.jpg', alt: 'Opening Remarks', title: 'Opening Remarks', desc: 'Welcoming hackers to Code the Storm.' },
-  { src: '/gallery/stellar_bootcamp.jpg', alt: 'Stellar Bootcamp', title: 'Stellar Bootcamp', desc: 'Learning Web3 and blockchain development hands-on.' }
+  { src: '/gallery/stellar_bootcamp.jpg', alt: 'Stellar Bootcamp', title: 'Stellar Bootcamp', desc: 'Learning Web3 and blockchain development hands-on.' },
+  { src: '/gallery/hackstorm_discussions.jpg', alt: 'Team Discussions', title: 'Team Discussions', desc: 'Mentors and participants collaborating on ideas.' },
+  { src: '/gallery/hackstorm_hall.jpg', alt: 'Hackstorm Arena', title: 'Hackstorm Arena', desc: 'Hackers building solutions during the 24-hour marathon.' },
+  { src: '/gallery/hackstorm_winners.jpg', alt: 'Winning Teams', title: 'Winning Teams', desc: 'Celebrating the top innovations at the closing ceremony.' },
+  { src: '/gallery/hackstorm_letters.jpg', alt: 'Hackstorm Pride', title: 'Hackstorm Pride', desc: 'Code the Storm, the community way.' },
+  { src: '/gallery/hive_mentors.jpg', alt: 'HIVE Mentors', title: 'HIVE Mentors', desc: 'Connecting community experts to guide the hackers.' },
+  { src: '/gallery/hackstorm_developers.jpg', alt: 'Building Tomorrow', title: 'Building Tomorrow', desc: 'Focus and passion in every line of code.' },
+  { src: '/gallery/hackstorm_focus.jpg', alt: 'Intense Development', title: 'Intense Development', desc: 'Hackers working together to meet the deadline.' },
+  { src: '/gallery/hackstorm_mentoring.jpg', alt: 'Expert Guidance', title: 'Expert Guidance', desc: 'One-on-one mentorship during the hackathon.' }
 ];
 
 export default function GalleryCarousel() {

@@ -13,13 +13,21 @@ const images = [
   'hackstorm_booth.jpg',
   'hackstorm_stage.jpg',
   'hackstorm_inauguration.jpg',
-  'stellar_bootcamp.jpg'
+  'stellar_bootcamp.jpg',
+  'hackstorm_discussions.jpg',
+  'hackstorm_hall.jpg',
+  'hackstorm_winners.jpg',
+  'hackstorm_letters.jpg',
+  'hive_mentors.jpg',
+  'hackstorm_developers.jpg',
+  'hackstorm_focus.jpg',
+  'hackstorm_mentoring.jpg'
 ];
 
 export default function GalleryMarquee() {
   // Split images into two rows for the marquee
-  const row1 = images.slice(0, 14);
-  const row2 = images.slice(14);
+  const row1 = images.slice(0, 18);
+  const row2 = images.slice(18);
 
   return (
     <div className={styles.galleryContainer}>
